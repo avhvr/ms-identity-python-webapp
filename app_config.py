@@ -13,7 +13,11 @@ CLIENT_SECRET = os.getenv("CLIENT_SECRET")
 if not CLIENT_SECRET:
     raise ValueError("Need to define CLIENT_SECRET environment variable")
 
-AUTHORITY = "https://login.microsoftonline.com/common"  # For multi-tenant app
+TENANT_ID = os.getenv("TENANT_ID")
+if not TENANT_ID:
+    raise ValueError("Need to define TENANT_ID environment variable")
+
+AUTHORITY = f"https://login.microsoftonline.com/{TENANT_ID}"  # For multi-tenant app
 # AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
 
 REDIRECT_PATH = "/getAToken"  # Used for forming an absolute URL to your redirect URI.
