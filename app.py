@@ -101,4 +101,4 @@ def _get_token_from_cache(scope=None):
 app.jinja_env.globals.update(_build_auth_url=_build_auth_url)  # Used in template
 
 if __name__ == "__main__":
-    app.run(port=80)
+    app.run()
